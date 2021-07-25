@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/patientdata', {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://debby:debby123@cluster0.tqx5t.mongodb.net/patientdata?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
