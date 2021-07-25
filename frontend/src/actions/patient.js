@@ -6,16 +6,12 @@ import {
   PATIENT_LIST_FAIL,
 } from '../constants/patientConstants';
 
-const PATIENT_URL = 'http://localhost:5000/api/patients/'
-
 export const listCompletePatientData = () => async (dispatch) => {
   dispatch({
     type: PATIENT_COMPLETELIST_REQUEST,
   });
   try {
-    const { data } = await Axios.get(
-      `${PATIENT_URL}`
-    );
+    const { data } = await Axios.get("api/patients/");
     dispatch({ type: PATIENT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PATIENT_LIST_FAIL, payload: error.message });
@@ -27,9 +23,7 @@ export const listRecentPatientData = () => async (dispatch) => {
     type: PATIENT_RECENTLIST_REQUEST,
   });
   try {
-    const { data } = await Axios.get(
-      `${PATIENT_URL}/latest`
-    );
+    const { data } = await Axios.get("api/patients/latest");;
     dispatch({ type: PATIENT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PATIENT_LIST_FAIL, payload: error.message });
