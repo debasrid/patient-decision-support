@@ -1,11 +1,10 @@
-
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import config from './config';
+import config from './config.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import patientRouter from './routers/patientRouter';
+import patientRouter from './routers/patientRouter.js';
 
 dotenv.config();
 const mongodbUrl= config.MONGODB_URL;
@@ -15,6 +14,7 @@ mongoose.connect(mongodbUrl, {
   useCreateIndex: true,
 });
 
+const __dirname = path.resolve();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
